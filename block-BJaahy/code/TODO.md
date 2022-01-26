@@ -31,27 +31,24 @@ class Square {
         return this._width * this._height;
     }
     get area() {
-        this.numberOfTimes++;
-        if(this.numberOfTimes >= 4) {
-            alert(`Upper limit reached`);
-        }else return this._width * this._height;
+        this.nuberOfTime++;
+        if(this.area >= 4){
+            alert(`Upper Limit Reached!`)
+        } else {
+            return this.width * this.height;
+        }
+       return this.width * this.height
     }
     set area(value) {
-        this._width = Math.sqrt(value);
-        this._height = Math.sqrt(value);
+        let side = Math.sqrt(value);
+        this.width = side;
+        this.height = side;
     }
-    static isEqual(square1, square2) {
-        return (square1.area === square2.area);
+    static isEqual(a, b) {
+        return a.area === b.area;
     }
 }
 
-let sq1 = new Square(10);
-sq1.area;
-sq1.calcArea();
-let sq2 = new Square(25);
-sq2.area;
-sq2.calcArea();
-Square.isEqual(sq1, sq2); // False
 ```
 
 ## User Class
@@ -90,10 +87,12 @@ class User {
         }else {
             this.first = name.split(" ")[0];
             this.last = name.split(" ")[1];
+            this.first = firstName;
+            this.last = lastName;
         }
     }
-    nameContains(name) {
-        return this.fullName.includes(name);
+    nameContains(str) {
+        return `${this.first} ${this.last}`.contains(str);
     }
 }
 
