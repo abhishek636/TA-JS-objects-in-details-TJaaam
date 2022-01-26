@@ -25,16 +25,17 @@ function user (name, id, noOfProjects) {
         return noOfProjects;
     };
     obj.changeName = function(newName) {
-        this.newName = newName;
-        return this.newName;
+      let prevName = obj.name;
+      obj.name = newName;
+      return prevName;
     };
     obj.incrementProject = function(value = 1) {
-        this.noOfProjects = this.noOfProjects + value;
-        return this.noOfProjects;
+        obj.noOfProjects = obj.noOfProjects + value;
+        return obj.noOfProjects;
     };
     obj.decrementProject = function(value = 1) {
-        this.noOfProjects = this.noOfProjects - value;
-        return this.noOfProjects;
+        obj.noOfProjects = obj.noOfProjects - value;
+        return obj.noOfProjects;
     };
     return obj;
 }
@@ -53,8 +54,9 @@ let methods = {
         return noOfProjects;
     },
     changeName(newName) {
-        this.newName = newName;
-        return this.newName;
+        let prevName = this.name;
+        this.name = newName;
+        return prevName;
     },
     incrementProject(value = 1) {
         this.noOfProjects = this.noOfProjects + value;
@@ -88,8 +90,9 @@ User.prototype  = {
         return noOfProjects;
     },
     changeName(newName) {
-        this.newName = newName;
-        return this.newName;
+      let prevName = this.name;
+      this.name = newName;
+      return prevName;
     },
     incrementProject(value = 1) {
         this.noOfProjects = this.noOfProjects + value;
@@ -100,6 +103,9 @@ User.prototype  = {
         return this.noOfProjects;
     },
 }
+
+let user1 = new User("Arya", 35, 67);
+let user2 = new User("John", 2, 34);
 */
 
 
