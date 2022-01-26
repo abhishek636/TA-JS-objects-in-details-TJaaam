@@ -22,7 +22,7 @@ let personTwo = createUser("Arya", 25);
 // 4. Change the code inside `createUser` in such a way that the methods `sayHello` doesn't have to be in all object. Use the prototypal nature. (Hint Object.create())
 
 let method = {
-    sayHello = function() {
+    sayHello: function() {
         alert (`Welcome ${this.name}`);
     }
 }
@@ -63,6 +63,9 @@ let personTwo = new CreateUser("Arya", 25);
 
 // 7. Try calling `personOne.sayHello()` and `personTwo.sayHello()`. Check if you get the required output.
 
+personOne.sayHello();
+personTwo.sayHello();
+
 // 8. Convert the `createUser` function into `User` class.
 
 
@@ -84,3 +87,6 @@ let personTwo = new User("Arya", 25);
 
 
 // 10. Try calling `personOne.sayHello()` and `personTwo.sayHello()`. Check if you get the required output.
+
+personOne.sayHello();
+personTwo.sayHello();
