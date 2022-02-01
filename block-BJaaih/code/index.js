@@ -131,6 +131,17 @@ chunk will be the remaining elements. `length` should default to 1.
 
 // You code goes here
 
+Array.prototype.chunk = function(size=1){
+  let arr = [...this];
+  let len = Math.floor(this.length/size);
+  let final = [];
+  for(let i=0; i < len; i++){
+    let chunk = arr.splice(0,size);
+    final.push(chunk);
+  }
+  return final;
+}
+
 
 // Test to check the shuffle method (It will return different output every time you call)
 console.log(num.chunk(2)); // [[1, 2], [3, 4], [2, 3], [6, 7], [7]]
