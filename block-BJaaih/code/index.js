@@ -4,6 +4,15 @@
 */
 
 // myMap function goes here
+Array.prototype.myMap = function(cb) {
+  let newArray = [];
+  let x = this.length;
+  for (let i = 0; i < x; i++) {
+    let counter = cb(this[i]);
+    newArray.push(counter);
+  }
+  return newArray;
+};
 
 // Test the myMap function you created above
 
@@ -29,13 +38,25 @@ After adding the function test it using the code below.
 */
 
 // You code goes here
+Array.prototype.myFilter = function(cb) {
+  let newArray = [];
+  let x = this.length;
+  for (let i = 0; i < x; i++) {
+    if (cb(this[i])) {
+      let counter = this[i];
+      newArray.push(counter);
+    }    
+  }
+  return newArray;
+};
+
 
 let even = numbers.myFilter(function (num) {
   return num % 2 === 0;
 });
 
-let filteredWords = words
-  .myFilter(function (word) {
+let filteredWords =
+  words.myFilter(function (word) {
     return word.length > 3;
   })
   .join(' ');
@@ -50,6 +71,9 @@ Make sure it does not the changes the original array.
 */
 
 // You code goes here
+Array.prototype.shuffle = function() {
+  return [...this].sort(() => Math.random() - 0.5);
+};
 
 // Test to check the shuffle method (It will return different output every time you call)
 console.log(numbers.shuffle());
@@ -64,6 +88,14 @@ Unique means no element should come multiple times.
 */
 
 // You code goes here
+Array.prototype.unique = function() {
+  return this.reduce((acc, cv) => {
+    if(!acc.includes(cv)){
+      acc.push(cv);
+    }
+    return acc;
+  }, []);
+};
 
 // Test to check the shuffle method (It will return different output every time you call)
 let num = [1, 2, 3, 4, 2, 3, 6, 7, 7];
@@ -78,6 +110,14 @@ array that will contain only element that is common in both the array.
 */
 
 // You code goes here
+Array.prototype.intersection = function(arr) {
+  return this.reduce((acc, cv) => {
+    if(arr.includes(cv)){
+      acc.push(cv);
+    }
+    return acc;
+  }, []).unique();
+};
 
 // Test to check the shuffle method (It will return different output every time you call)
 console.log(num.intersection([2, 7, 11, 32])); // [2, 7]
@@ -90,6 +130,7 @@ chunk will be the remaining elements. `length` should default to 1.
 */
 
 // You code goes here
+
 
 // Test to check the shuffle method (It will return different output every time you call)
 console.log(num.chunk(2)); // [[1, 2], [3, 4], [2, 3], [6, 7], [7]]
