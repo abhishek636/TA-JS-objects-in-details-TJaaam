@@ -169,13 +169,13 @@ function userFactory(name, score) {
   return user;
 }
 
-var adminFunctionStore /* Put code here */;
+var adminFunctionStore /* Put code here */ = Object.create(userFunctionStore);
 
 function adminFactory(name, score) {
   // Put code here
-  let obj = userFactory(name, score);
+  let obj = userFactory(name,score);
   Object.setPrototypeOf(obj, adminFunctionStore);
-  obj.type = 'Admin';
+  obj.type = "Admin";
   return obj;
 }
 
